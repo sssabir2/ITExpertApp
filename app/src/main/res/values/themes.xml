@@ -1,7 +1,6 @@
 <resources>
-<!-- App theme built on Material3 -->
-<style name="Theme.ITExpert" parent="Theme.Material3.DayNight">
-<!-- Optional tweaks -->
+<!-- App theme built on Material 3 (View system) so XML theme exists -->
+<style name="Theme.ITExpert" parent="Theme.Material3.DayNight.NoActionBar">
 <item name="android:statusBarColor">@android:color/transparent</item>
 </style>
 </resources>
