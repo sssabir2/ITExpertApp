@@ -8,9 +8,15 @@ workflows:
           echo "JAVA_HOME=$JAVA_HOME_17_X64" >> $CM_ENV
           export JAVA_HOME=$JAVA_HOME_17_X64
           java -version
-      - name: Make Gradle executable
-        script: chmod +x ./gradlew || true
-      - name: Build debug APK
-        script: ./gradlew assembleDebug
+      - name: Build debug APK (wrapper or system Gradle)
+        script: |
+          if [ -f "./gradlew" ]; then
+            chmod +x ./gradlew
+            ./gradlew assembleDebug
+          else
+            echo "gradlew not found, using system Gradle"
+            gradle --version || true
+            gradle assembleDebug
+          fi
     artifacts:
       - app/build/outputs/**/*.apk
