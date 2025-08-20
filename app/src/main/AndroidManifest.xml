@@ -3,7 +3,7 @@
         android:allowBackup="true"
         android:label="IT Expert"
         android:supportsRtl="true"
-        android:theme="@style/Theme.Material3.DayNight.NoActionBar">
+        android:theme="@style/Theme.ITExpert">
         <activity
             android:name=".MainActivity"
             android:exported="true">

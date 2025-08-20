@@ -1,0 +1,7 @@
+<resources>
+<!-- App theme built on Material3 -->
+<style name="Theme.ITExpert" parent="Theme.Material3.DayNight">
+<!-- Optional tweaks -->
+<item name="android:statusBarColor">@android:color/transparent</item>
+</style>
+</resources>
