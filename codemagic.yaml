@@ -2,11 +2,15 @@ workflows:
   android:
     name: Build Android APK
     max_build_duration: 60
-    environment:
-      sdk: "30"
     scripts:
-      - name: Build debug APK
+      - name: Use JDK 17
         script: |
-          ./gradlew assembleDebug || gradle assembleDebug
+          echo "JAVA_HOME=$JAVA_HOME_17_X64" >> $CM_ENV
+          export JAVA_HOME=$JAVA_HOME_17_X64
+          java -version
+      - name: Make Gradle executable
+        script: chmod +x ./gradlew || true
+      - name: Build debug APK
+        script: ./gradlew assembleDebug
     artifacts:
       - app/build/outputs/**/*.apk
